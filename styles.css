@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.video-editor {
+    display: grid;
+    grid-template: 
+        "video video subs" 
+        "controls controls controls";
+    grid-gap: 20px;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.video-container {
+    grid-area: video;
+    position: relative;
+    height: auto;
+}
+
+video {
+    width: 100%;
+    display: block;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.controls {
+    grid-area: controls;
+}
+
+.range-slider {
+    position: relative;
+    width: 100%;
+}
+
+input[type="range"] {
+    position: absolute;
+    width: 100%;
+    pointer-events: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    pointer-events: all;
+    position: relative;
+    z-index: 2;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 0;
+}
+input[type="range"]::-moz-range-track {
+    height: 0;
+}
+
+#rangeMarks {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background-color: #ddd;
+    z-index: 0;
+}
+
+#rangeMarks div {
+    position: absolute;
+    height: 100%;
+    background-color: rgba(231, 76, 60, 0.5);
+    pointer-events: none;
+}
+
+#rangeHighlight {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    background-color: rgba(52, 152, 219, 0.5);
+    pointer-events: none;
+}
+
+.subtitle-controls {
+    margin-top: 20px;
+}
+
+#subtitleInput {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.subtitles {
+    grid-area: subs;
+    width: 300px;
+}
+
+.subtitles h3 {
+    margin: 0;
+}
+
+#subtitleList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#subtitleList li {
+    display: inline;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+#subtitleList li:hover {
+    background: rgba(52, 152, 219, 0.5);
+}
+
+#subtitleList li.active {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.mark::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 10px;
+    width: 1px;
+    background: #000;
+}

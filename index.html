@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Editor with Subtitles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="video-editor">
+        <div class="video-container">
+            <video id="videoPlayer" controls>
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <canvas id="subtitleCanvas"></canvas>
+        </div>
+
+        <div class="controls">
+            <div class="range-slider">
+                <div id="rangeMarks"></div>
+                <input type="range" id="startSlider" min="0" max="100" value="0" step="0.01">
+                <input type="range" id="endSlider" min="0" max="100" value="100" step="0.01">
+                <div id="rangeHighlight"></div>
+            </div>
+            <div class="subtitle-controls">
+                <input type="text" id="subtitleInput" placeholder="Enter subtitle text">
+                <button id="addSubtitle">Add Subtitle</button>
+            </div>
+        </div>
+
+        <div class="subtitles">
+            <h3>Subtitles</h3>
+            <ul id="subtitleList"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
