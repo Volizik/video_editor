@@ -148,3 +148,16 @@ input[type="range"]::-moz-range-track {
     width: 1px;
     background: #000;
 }
+
+@media screen and (max-width: 900px) {
+    .video-editor {
+        grid-template: 
+            "video" 
+            "subs"
+            "controls";
+        width: 90%;
+    }
+    .subtitles {
+        width: 100%;
+    }
+  }
