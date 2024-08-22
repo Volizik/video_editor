@@ -85,11 +85,11 @@ function updateRangeHighlight() {
 
 function renderRangeMarks() {
     rangeMarks.innerHTML = '';
- 
+    
     subtitles.forEach(sub => {
-        const startPercent = (sub.start / video.duration) * 100;
+        const startPercent = sub.start ? ((sub.start / video.duration) * 100) : 0;
         const endPercent = (sub.end / video.duration) * 100;
-
+        // debugger
         const mark = document.createElement('div');
         mark.classList.add('mark')
         mark.style.left = `${startPercent}%`;
@@ -185,12 +185,22 @@ video.addEventListener('timeupdate', () => {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+video.addEventListener('loadedmetadata', () => {
     renderSubtitleList();    
     renderRangeMarks();
-    updateRangeHighlight(); 
     
     canvas.width = video.clientWidth;
     canvas.height = video.clientHeight;
+})
+
+document.addEventListener('DOMContentLoaded', () => {      
+    updateRangeHighlight(); 
+    renderSubtitleList();    
+    renderRangeMarks();
+
+    canvas.width = video.clientWidth;
+    canvas.height = video.clientHeight;
+
+    
 })
 
